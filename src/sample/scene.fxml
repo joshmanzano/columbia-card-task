@@ -1,0 +1,922 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox fx:id="gamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+        <children>
+          <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <GridPane fx:id="buttonPane" alignment="CENTER" hgap="10.0" layoutX="150.0" layoutY="170.0" prefHeight="400.0" prefWidth="600.0" vgap="10.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <effect>
+                        <Blend />
+                     </effect>
+                  </GridPane>
+                  <Text id="text" fx:id="roundNum" layoutX="315.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="89.0">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Text>
+                  <Text id="game-text" layoutX="549.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Round Total:" wrappingWidth="157.7294921875">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Button fx:id="endRound" layoutX="560.0" layoutY="132.0" mnemonicParsing="false" onAction="#endRound" text="End Round" />
+                  <Button fx:id="nextRound" layoutX="655.0" layoutY="132.0" mnemonicParsing="false" onAction="#nextRound" text="Next Round" />
+                  <Label fx:id="roundLabel" layoutX="150.0" layoutY="13.0" styleClass="text" text="Round">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="151.0" layoutY="72.0" styleClass="text" text="Loss Amount:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="150.0" layoutY="102.0" prefHeight="30.0" prefWidth="166.0" text="Gain Amount:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="150.0" layoutY="130.0" text="Number of loss cards:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Text id="value-text" fx:id="roundLossAmount" layoutX="318.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="122.7294921875">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text id="value-text" fx:id="roundLossCards" layoutX="413.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="89.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text id="value-text" fx:id="roundGainAmount" layoutX="315.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="116.7294921875">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Text id="value-text" fx:id="roundScore" layoutX="703.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" wrappingWidth="79.7294921875">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+          </AnchorPane>
+        </children>
+      </VBox>
+      <VBox fx:id="playerPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="246.0" layoutY="65.0" text="Last 4 digits of your ID number:" />
+                  <TextField fx:id="playerName" layoutX="455.0" layoutY="60.0" onKeyTyped="#enableStart" promptText="Enter last 4 digits." />
+                  <Label layoutX="360.0" layoutY="119.0" text="INSTRUCTIONS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Pane id="gainCard" layoutX="235.0" layoutY="167.0" prefHeight="100.0" prefWidth="70.0" />
+                  <Pane id="lossCard" layoutX="235.0" layoutY="283.0" prefHeight="100.0" prefWidth="70.0" />
+                  <Text fx:id="instruct1" layoutX="329.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Gain Card: For every gain card you turn over, your score increases by either 25 or 75 points in different rounds." wrappingWidth="277.7294921875" />
+                  <Text fx:id="instruct2" layoutX="329.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Loss Card: For every loss card you turn over, your score decreases by either 300 or 900 points, depending on the round. Furthermore, the round immediately ends (you cannot turn over any more cards). There will be either 1 or 3 loss cards in different rounds." wrappingWidth="277.7294921875" />
+                  <Text fx:id="instruct3" layoutX="329.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The number of loss cards and the value of points that can be won or lost by turning over a gain or loss card are fixed in each round. This information will always be on display so you know what kind of round you are in." wrappingWidth="277.7294921875" />
+                  <Button layoutX="347.0" layoutY="539.0" mnemonicParsing="false" onAction="#backTitle" text="Back" />
+                  <Button fx:id="playButton" disable="true" layoutX="405.0" layoutY="539.0" mnemonicParsing="false" onAction="#startPracticeRound" text="Play Practice Rounds" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox fx:id="afterPracticePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="360.0" layoutY="213.0" text="INSTRUCTIONS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="325.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You have finished the practice rounds." wrappingWidth="277.7294921875" />
+                  <Text layoutX="325.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="You will now proceed with the actual rounds." wrappingWidth="277.7294921875" />
+                  <Button layoutX="388.0" layoutY="435.0" mnemonicParsing="false" onAction="#startRound" text="Play First Round" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox fx:id="titlePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="187.0" layoutY="235.0" styleClass="text" text="Columbian Card Task">
+                     <font>
+                        <Font size="48.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="407.0" layoutY="349.0" mnemonicParsing="false" onAction="#startTitle" text="Start" />
+                  <Button layoutX="396.0" layoutY="539.0" mnemonicParsing="false" onAction="#startSetting" text="Settings" />
+               </children>
+            </AnchorPane>
+         </children></VBox>
+      <VBox fx:id="endScorePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="391.0" layoutY="37.0" styleClass="text" text="Results">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TableView fx:id="resultTable" layoutX="25.0" layoutY="265.0" prefHeight="319.0" prefWidth="844.0">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <Label layoutX="364.0" layoutY="131.0" styleClass="text" text="You earned:">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="296.0" layoutY="190.0" styleClass="text" text="Thank you for participating">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="average" layoutX="426.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="XX.XX" wrappingWidth="70.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="374.0" layoutY="162.0" styleClass="text" text="Php">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox fx:id="settingPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="405.0" layoutY="47.0" text="Settings">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="396.0" layoutY="539.0" mnemonicParsing="false" onAction="#backTitle" text="Back" />
+                  <Button layoutX="454.0" layoutY="539.0" mnemonicParsing="false" onAction="#saveSetting" text="Save" />
+                  <Label layoutX="174.0" layoutY="214.0" text="Gain Amount:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="175.0" layoutY="271.0" text="Loss Amount:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="174.0" layoutY="327.0" text="Number of Cards:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="gainAmountLow" layoutX="422.0" layoutY="216.0" prefHeight="26.0" prefWidth="80.0" />
+                  <TextField fx:id="lossAmountLow" layoutX="422.0" layoutY="273.0" prefHeight="26.0" prefWidth="80.0" />
+                  <TextField fx:id="lossCardLow" layoutX="422.0" layoutY="329.0" prefHeight="26.0" prefWidth="80.0" />
+                  <TextField fx:id="gainAmountHigh" layoutX="539.0" layoutY="216.0" prefHeight="26.0" prefWidth="80.0" />
+                  <TextField fx:id="lossAmountHigh" layoutX="539.0" layoutY="273.0" prefHeight="26.0" prefWidth="80.0" />
+                  <TextField fx:id="lossCardHigh" layoutX="539.0" layoutY="329.0" prefHeight="26.0" prefWidth="80.0" />
+                  <Label layoutX="444.0" layoutY="180.0" text="Low">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="558.0" layoutY="180.0" text="High">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox fx:id="msesPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="323.0" layoutY="499.0" text="I think I am on:" />
+                  <Label layoutX="397.0" layoutY="31.0" text="MSES">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Pane id="ladder" layoutX="274.0" layoutY="142.0" prefHeight="335.0" prefWidth="362.0" />
+                  <Text layoutX="308.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="If this ladder represents your batchmates, ranked according to wealth, where would you rank yourself?" wrappingWidth="277.7294921875" />
+                  <Button disable="true" layoutX="397.0" layoutY="538.0" mnemonicParsing="false" text="Back" />
+                  <Button fx:id="nextButton" layoutX="455.0" layoutY="538.0" mnemonicParsing="false" onAction="#startQUES" text="Next" />
+                  <ChoiceBox fx:id="msesChoice" layoutX="429.0" layoutY="494.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox fx:id="quesPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="315.0" layoutY="30.0" text="Personal Questionnaire">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="397.0" layoutY="538.0" mnemonicParsing="false" onAction="#startMSES" text="Back" />
+                  <Button fx:id="nextButton1" layoutX="455.0" layoutY="538.0" mnemonicParsing="false" onAction="#startMIDUS" text="Next" />
+                  <GridPane layoutX="186.0" layoutY="74.0" prefHeight="452.0" prefWidth="528.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Gender:" wrapText="true" />
+                        <Label text="Highschool:" wrapText="true" GridPane.rowIndex="1" />
+                        <Label text="Number of Persons in the Household:" wrapText="true" GridPane.rowIndex="2" />
+                        <Label text="Is your home a building of its own? (not a condo or townhouse) " wrapText="true" GridPane.rowIndex="3" />
+                        <Label text="Do you or your family own the home?" wrapText="true" GridPane.rowIndex="4" />
+                        <Label text="Is your home larger than 100sqm?" wrapText="true" GridPane.rowIndex="5" />
+                        <TextField fx:id="highschool" onKeyTyped="#enableStart" prefHeight="26.0" prefWidth="263.0" promptText="What high school did you come from?" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <GridPane GridPane.columnIndex="1">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <RadioButton mnemonicParsing="false" text="M">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="gender" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton mnemonicParsing="false" text="F" toggleGroup="$gender" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <RadioButton mnemonicParsing="false" text="Yes">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="homeBuilding" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton mnemonicParsing="false" text="No" toggleGroup="$homeBuilding" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <RadioButton mnemonicParsing="false" text="Yes">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="ownHome" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton mnemonicParsing="false" text="No" toggleGroup="$ownHome" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="5">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <RadioButton mnemonicParsing="false" text="Yes">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="homeLarger" />
+                                 </toggleGroup></RadioButton>
+                              <RadioButton mnemonicParsing="false" text="No" toggleGroup="$homeLarger" GridPane.columnIndex="1" />
+                           </children>
+                        </GridPane>
+                        <TextField fx:id="numOfPerson" prefHeight="26.0" prefWidth="101.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox fx:id="midusPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="397.0" layoutY="31.0" text="MIDUS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="203.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate the following from 1-7 with 1- strongly disagree and 7- strongly agree " wrappingWidth="504.7294921875" />
+                  <Button layoutX="397.0" layoutY="538.0" mnemonicParsing="false" onAction="#startQUES" text="Back" />
+                  <Button fx:id="nextButton11" layoutX="455.0" layoutY="538.0" mnemonicParsing="false" onAction="#startMIDUS2" text="Next" />
+                  <GridPane gridLinesVisible="true" layoutX="20.0" layoutY="170.0" prefHeight="309.0" prefWidth="867.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq1" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq1" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq1" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq1" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq1" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq1" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq1" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="1. There is little I can do to change many of the important things in my life." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq2" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq2" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq2" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq2" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq2" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq2" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq2" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="2. I often feel helpless in dealing with the problems of life." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq3" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq3" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq3" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq3" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq3" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq3" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq3" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="3.  I can do just about anything I really set my mind to do." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq4" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq4" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq4" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq4" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq4" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq4" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq4" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="4. Other people determine most of what I can and cannot do." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="261.0" layoutY="114.0" prefHeight="56.0" prefWidth="625.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Strongly disagree" wrapText="true" />
+                        <Label text="Somewhat disagree" wrapText="true" GridPane.columnIndex="1" />
+                        <Label text="Disagree a little" wrapText="true" GridPane.columnIndex="2" />
+                        <Label text="Don't know" wrapText="true" GridPane.columnIndex="3" />
+                        <Label text="Agree a little" wrapText="true" GridPane.columnIndex="4" />
+                        <Label text="Somewhat agree" wrapText="true" GridPane.columnIndex="5" />
+                        <Label text="Strongly agree" wrapText="true" GridPane.columnIndex="6" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox fx:id="midus2Pane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="397.0" layoutY="31.0" text="MIDUS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="203.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate the following from 1-7 with 1- strongly disagree and 7- strongly agree " wrappingWidth="504.7294921875" />
+                  <Button layoutX="397.0" layoutY="538.0" mnemonicParsing="false" onAction="#startMIDUS" text="Back" />
+                  <Button fx:id="nextButton112" layoutX="455.0" layoutY="538.0" mnemonicParsing="false" onAction="#startMIDUS3" text="Next" />
+                  <GridPane gridLinesVisible="true" layoutX="20.0" layoutY="170.0" prefHeight="309.0" prefWidth="867.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq5" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq5" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq5" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq5" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq5" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq5" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq5" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="5. What happens in my life is often beyond my control." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq6" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq6" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq6" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq6" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq6" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq6" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq6" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="6. When I really want to do something, I usually find a way to succeed at it." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq7" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq7" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq7" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq7" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq7" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq7" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq7" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="7. There are many things that interfere with what I want to do." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq8" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq8" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq8" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq8" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq8" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq8" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq8" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="8. Whether or not I am able to get what I want is in my own hands." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="261.0" layoutY="114.0" prefHeight="56.0" prefWidth="625.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Strongly disagree" wrapText="true" />
+                        <Label text="Somewhat disagree" wrapText="true" GridPane.columnIndex="1" />
+                        <Label text="Disagree a little" wrapText="true" GridPane.columnIndex="2" />
+                        <Label text="Don't know" wrapText="true" GridPane.columnIndex="3" />
+                        <Label text="Agree a little" wrapText="true" GridPane.columnIndex="4" />
+                        <Label text="Somewhat agree" wrapText="true" GridPane.columnIndex="5" />
+                        <Label text="Strongly agree" wrapText="true" GridPane.columnIndex="6" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox fx:id="midus3Pane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="397.0" layoutY="31.0" text="MIDUS">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="203.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rate the following from 1-7 with 1- strongly disagree and 7- strongly agree " wrappingWidth="504.7294921875" />
+                  <Button layoutX="397.0" layoutY="538.0" mnemonicParsing="false" onAction="#startMIDUS2" text="Back" />
+                  <Button fx:id="nextButton1121" layoutX="455.0" layoutY="538.0" mnemonicParsing="false" onAction="#startSOEP" text="Next" />
+                  <GridPane gridLinesVisible="true" layoutX="20.0" layoutY="170.0" prefHeight="309.0" prefWidth="867.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq9" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq9" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq9" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq9" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq9" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq9" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq9" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="9. I have little control over the things that happen to me." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq10" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq10" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq10" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq10" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq10" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq10" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq10" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="10. There is really no way I can solve some of the problems I have." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="88.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq11" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq11" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq11" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq11" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq11" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq11" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq11" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="11. Sometimes I feel that I am being pushed around in life." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                           <children>
+                              <GridPane layoutX="242.0" layoutY="11.0" prefHeight="56.0" prefWidth="625.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <RadioButton mnemonicParsing="false" text="1">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="mq12" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="2" toggleGroup="$mq12" GridPane.columnIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="3" toggleGroup="$mq12" GridPane.columnIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="4" toggleGroup="$mq12" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="5" toggleGroup="$mq12" GridPane.columnIndex="4" />
+                                    <RadioButton mnemonicParsing="false" text="6" toggleGroup="$mq12" GridPane.columnIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="7" toggleGroup="$mq12" GridPane.columnIndex="6" />
+                                 </children>
+                              </GridPane>
+                              <Label layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="207.0" text="12. What happens to me in the future mostly depends on me." wrapText="true" />
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="261.0" layoutY="114.0" prefHeight="56.0" prefWidth="625.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label text="Strongly disagree" wrapText="true" />
+                        <Label text="Somewhat disagree" wrapText="true" GridPane.columnIndex="1" />
+                        <Label text="Disagree a little" wrapText="true" GridPane.columnIndex="2" />
+                        <Label text="Don't know" wrapText="true" GridPane.columnIndex="3" />
+                        <Label text="Agree a little" wrapText="true" GridPane.columnIndex="4" />
+                        <Label text="Somewhat agree" wrapText="true" GridPane.columnIndex="5" />
+                        <Label text="Strongly agree" wrapText="true" GridPane.columnIndex="6" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <VBox fx:id="soepPane" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" visible="false">
+         <children>
+            <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="600.0" prefWidth="900.0">
+               <children>
+                  <Label layoutX="397.0" layoutY="31.0" text="SOEP">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="267.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="On a scale of 1-10, how much of a risk taker are you?" wrappingWidth="180.0" />
+                  <Button layoutX="397.0" layoutY="538.0" mnemonicParsing="false" onAction="#startMIDUS3" text="Back" />
+                  <Button fx:id="nextButton111" layoutX="455.0" layoutY="538.0" mnemonicParsing="false" onAction="#startResult" text="Finish" />
+                  <ChoiceBox fx:id="soepChoice" layoutX="447.0" layoutY="233.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" visible="false" />
+   </children>
+</StackPane>

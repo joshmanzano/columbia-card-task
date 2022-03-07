@@ -1,0 +1,30 @@
+.root {
+}
+
+#hiddenGainCard, #hiddenLossCard {
+    -fx-background-color: #CBF4EB;
+    -fx-background-image: url('qmark2.png');
+}
+
+#hiddenGainCard:hover, #hiddenLossCard:hover {
+    -fx-background-color: #b6f0e3;
+}
+
+#gainCard {
+    -fx-background-color: #f9ba09;
+    -fx-background-image: url('gain.png');
+}
+
+#lossCard {
+    -fx-background-color: #ff376f;
+    -fx-background-image: url('loss.png');
+}
+
+#ladder {
+    -fx-background-image: url('ladder.png');
+}
+
+#value-text {
+    -fx-fill: #2a8f78;
+    -fx-font-weight: bold;
+}
